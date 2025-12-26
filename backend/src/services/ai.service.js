@@ -6,9 +6,10 @@ const config = require('../config/env');
  */
 class AIService {
   constructor() {
-    this.apiKey = config.openai.apiKey;
-    this.endpoint = config.openai.endpoint;
-    this.model = config.openai.model;
+    this.apiKey = config.azure.apiKey;
+    this.endpoint = config.azure.endpoint;
+    this.deployment = config.azure.deployment;
+    this.apiVersion = config.azure.apiVersion;
   }
 
   /**
@@ -25,10 +26,13 @@ class AIService {
 
       const prompt = this.buildAnalysisPrompt(text, options);
       
+      const azureUrl = `${this.endpoint}/openai/deployments/${this.deployment}/chat/completions?api-version=${this.apiVersion}`;
+      console.log('🔍 Calling Azure OpenAI URL:', azureUrl);
+      console.log('🔑 Using deployment:', this.deployment);
+      
       const response = await axios.post(
-        `${this.endpoint}/chat/completions`,
+        azureUrl,
         {
-          model: this.model,
           messages: [
             {
               role: 'system',
@@ -44,7 +48,7 @@ class AIService {
         },
         {
           headers: {
-            'Authorization': `Bearer ${this.apiKey}`,
+            'api-key': this.apiKey,
             'Content-Type': 'application/json'
           }
         }
