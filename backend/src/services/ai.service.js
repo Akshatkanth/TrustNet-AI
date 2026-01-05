@@ -160,6 +160,7 @@ ${options.detailed ? 'Provide detailed analysis for each factor.' : 'Provide con
     }
   }
 
+  //
   /**
    * Chat with context about previous analysis
    */
