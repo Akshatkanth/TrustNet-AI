@@ -1,7 +1,8 @@
 import React from 'react';
+import { MessageCircle } from 'lucide-react';
 import './ResultCard.css';
 
-const ResultCard = ({ result }) => {
+const ResultCard = ({ result, onChatOpen }) => {
   if (!result) return null;
 
   const { riskScore, trustLevel, confidence, analysis } = result.data;
@@ -28,6 +29,12 @@ const ResultCard = ({ result }) => {
     <div className="result-card">
       <div className="result-header">
         <h2>Analysis Results</h2>
+        {onChatOpen && (
+          <button className="chat-button" onClick={onChatOpen} title="Chat with AI Assistant">
+            <MessageCircle size={20} />
+            <span>Ask AI</span>
+          </button>
+        )}
       </div>
 
       <div className="risk-score-section">
@@ -91,6 +98,15 @@ const ResultCard = ({ result }) => {
         <div className="analysis-section overall-assessment">
           <h3>Overall Assessment</h3>
           <p>{analysis.overallAssessment}</p>
+        </div>
+      )}
+
+      {onChatOpen && (
+        <div className="result-footer">
+          <button className="ask-ai-button-large" onClick={onChatOpen}>
+            <MessageCircle size={24} />
+            <span>Ask AI Assistant</span>
+          </button>
         </div>
       )}
     </div>

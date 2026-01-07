@@ -24,12 +24,38 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 24px;
   color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .result-header h2 {
   margin: 0;
   font-size: 24px;
   font-weight: 600;
+}
+
+.chat-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.chat-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .risk-score-section {
@@ -179,9 +205,58 @@
   background: #edf2f7;
 }
 
+.result-footer {
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  border-top: 2px solid #667eea;
+  display: flex;
+  justify-content: center;
+}
+
+.ask-ai-button-large {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.ask-ai-button-large:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(102, 126, 234, 0.6);
+}
+
+.ask-ai-button-large:active {
+  transform: translateY(-1px);
+}
+
 @media (max-width: 768px) {
   .risk-score-section {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .result-header {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .chat-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ask-ai-button-large {
+    width: 100%;
+    justify-content: center;
   }
 }

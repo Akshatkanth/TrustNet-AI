@@ -56,12 +56,32 @@ export const analyzeImage = async (imageFile, options = {}) => {
   try {
     const formData = new FormData();
     formData.append('image', imageFile);
-    formData.append('options', JSON.stringify(options));
-
+    
+    // Use a custom config to override the json content type
     const response = await api.post('/analyze-image', formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
+    });
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
+
+/**
+ * Chat with AI about analysis context
+ * @param {string} message - Chat message
+ * @param {Object} analysisContext - Context from previous analysis
+ * @param {Array} conversationHistory - Previous chat messages
+ * @returns {Promise} Chat response
+ */
+export const chatWithContext = async (message, analysisContext = null, conversationHistory = []) => {
+  try {
+    const response = await api.post('/chat', {
+      message,
+      analysisContext,
+      conversationHistory
     });
     return response;
   } catch (error) {
