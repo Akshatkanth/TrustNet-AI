@@ -32,19 +32,9 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Prepare artifact
-        run: |
-          # keep node_modules for runtime (serve)
-          echo "Artifact will include app files"
-      
-      - name: Zip artifact
-        run: |
-          cd ..
-          zip -r frontend1.zip frontend1 -x "**/.git/**"
-
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_FRONTEND }}
-          package: frontend1.zip
+          package: .
