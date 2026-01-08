@@ -7,6 +7,9 @@ const server = http.createServer((req, res) => {
   return handler(req, res, {
     public: 'dist',
     cleanUrls: true,
+    rewrites: [
+      { source: '**', destination: '/index.html' }
+    ],
     headers: [
       {
         source: '**/*',
