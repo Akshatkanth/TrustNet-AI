@@ -138,21 +138,53 @@
 
 @media (max-width: 768px) {
   .header {
-    padding: 1.2rem 1.5rem;
+    padding: 1rem 1rem;
+    flex-wrap: wrap;
+  }
+
+  .header-logo {
+    font-size: 1.2rem;
   }
 
   .header-nav {
-    gap: 0.6rem;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .header-nav a,
+  .header-nav button {
+    font-size: 13px;
+    padding: 8px 12px;
   }
 
   .main-content {
-    padding: 2rem 1.25rem;
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+  }
+
+  .footer {
+    padding: 1rem;
+    font-size: 0.85rem;
   }
 }
 
 @media (max-width: 480px) {
+  .header {
+    padding: 0.8rem 0.8rem;
+  }
+
   .header-logo {
     font-size: 1.1rem;
+  }
+
+  .header-nav a,
+  .header-nav button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .main-content {
+    padding: 1rem 0.75rem;
   }
 }
 

@@ -239,6 +239,11 @@
    ========================= */
 
 @media (max-width: 768px) {
+  .landing-root {
+    padding: 90px 16px 40px;
+    padding-right: 16px !important; /* Remove the 420px padding on mobile */
+  }
+
   .landing-title {
     font-size: 32px;
   }
@@ -249,6 +254,19 @@
 
   .header-nav {
     gap: 0.8rem;
+  }
+
+  .landing-top-header {
+    padding: 0 1rem;
+  }
+
+  .landing-nav-links {
+    gap: 0.5rem;
+  }
+
+  .landing-nav-links a {
+    font-size: 13px;
+    padding: 8px 12px;
   }
 }
 
