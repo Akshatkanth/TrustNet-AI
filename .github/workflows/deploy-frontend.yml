@@ -30,6 +30,8 @@ jobs:
       - name: Build
         run: npm run build
         working-directory: frontend1
+        env:
+          VITE_API_URL: https://careshield-api-prod-b5fqedarddapdehb.centralindia-01.azurewebsites.net/api
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
