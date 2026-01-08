@@ -148,7 +148,7 @@ const Home = () => {
 
         {/* FOOTER */}
         <footer className="footer">
-          <p>Made for Imagine Cup 2025 | Powered by AI</p>
+          <p>Made for Imagine Cup 2026 | Powered by AI</p>
         </footer>
       </div>
 
