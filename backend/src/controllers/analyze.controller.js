@@ -7,9 +7,16 @@ const { calculateRiskScore, generateRiskBreakdown } = require('../utils/riskScor
 const analyzeText = async (req, res, next) => {
   try {
     const { text, options = {} } = req.body;
+    
+    // Debug logging
+    console.log('📥 Request body:', JSON.stringify(req.body));
+    console.log('📝 Text received:', text);
+    console.log('📏 Text type:', typeof text);
+    console.log('📊 Text length:', text ? text.length : 0);
 
     // Validate input
     if (!text || typeof text !== 'string') {
+      console.error('❌ Validation failed: text is required and must be a string');
       return res.status(400).json({
         success: false,
         error: { message: 'Text content is required and must be a string' }
@@ -17,6 +24,7 @@ const analyzeText = async (req, res, next) => {
     }
 
     if (text.trim().length < 10) {
+      console.error('❌ Validation failed: text too short, length:', text.trim().length);
       return res.status(400).json({
         success: false,
         error: { message: 'Text content must be at least 10 characters long' }
