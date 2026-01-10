@@ -1,6 +1,7 @@
 # TrustNet-AI
 
 AI-Powered Content Trust & Risk Analysis Platform for Imagine Cup 2025
+https://careshield-web-prod-hxe9afcuapf4h4h6.centralindia-01.azurewebsites.net/
 
 ## 🚀 Project Overview
 
@@ -9,9 +10,10 @@ TrustNet-AI is an intelligent content analysis platform that uses AI to evaluate
 ## 📁 Project Structure
 
 ```
-trustnet-ai/
+TrustNet-AI/
 ├── backend/          # Express.js API server
-├── frontend/         # React frontend application
+├── frontend1/        # React frontend application
+├── TrustNet-AI.code-workspace
 ├── .gitignore
 └── README.md
 ```
@@ -30,6 +32,10 @@ trustnet-ai/
 - **React 18** - UI framework
 - **Vite** - Build tool and dev server
 - **Axios** - API communication
+- **React Router DOM** - Client-side routing
+- **Lucide React** - Icon library
+- **React Speech Recognition** - Voice input support
+- **Emoji Mart** - Emoji picker component
 - **CSS3** - Styling
 
 ## 🏃 Getting Started
@@ -68,7 +74,7 @@ The backend will run on `http://localhost:5000`
 
 1. Navigate to the frontend directory:
 ```bash
-cd frontend
+cd frontend1
 ```
 
 2. Install dependencies:
@@ -82,6 +88,12 @@ npm run dev
 ```
 
 The frontend will run on `http://localhost:5173`
+
+4. (Alternative) Build and serve for production:
+```bash
+npm run build
+npm run preview
+```
 
 ## 📡 API Endpoints
 
@@ -133,6 +145,11 @@ Check API health status.
 - ✅ Detailed recommendations
 - ✅ Real-time analysis
 - ✅ Responsive UI
+- ✅ Voice input support (speech recognition)
+- ✅ Client-side routing with React Router
+- ✅ Rich emoji picker support
+- ✅ Modern icon library (Lucide React)
+- ✅ Multiple pages: Home, About, HowItWorks, Landing, Login
 
 ## 🔒 Security
 
@@ -141,19 +158,13 @@ Check API health status.
 - Input validation and sanitization
 - Rate limiting ready
 - Environment variable protection
-
-## 📝 Development
-
-### Backend Development
-```bash
-cd backend
-npm run dev  # Starts with nodemon for auto-reload
+ on port 5000
 ```
 
 ### Frontend Development
 ```bash
-cd frontend
-npm run dev  # Starts Vite dev server with HMR
+cd frontend1
+npm run dev  # Starts Vite dev server with HMR on port 5173
 ```
 
 ### Build for Production
@@ -161,8 +172,15 @@ npm run dev  # Starts Vite dev server with HMR
 Backend:
 ```bash
 cd backend
-npm start
+npm start  # Runs production server
 ```
+
+Frontend:
+```bash
+cd frontend1
+npm run build    # Build for production
+npm run preview  # Preview production build locally
+npm start        # Serve production build
 
 Frontend:
 ```bash
